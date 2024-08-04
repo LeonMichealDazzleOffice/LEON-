@@ -5,22 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>合作驻网页面</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    main h2 {
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
@@ -36,12 +21,22 @@
         <p>李四</p>
       </div>
     </div>
-    <button onclick="goBack()">返回上一页</button>
+    <audio id="myAudio" autoplay>
+      <source src="your_music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button onclick="toggleMute()">静音</button>
   </main>
 
   <script>
-    function goBack() {
-      window.history.back();
+    var audio = document.getElementById("myAudio");
+
+    function toggleMute() {
+      if (audio.muted) {
+        audio.muted = false;
+      } else {
+        audio.muted = true;
+      }
     }
   </script>
 </body>
