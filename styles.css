@@ -32,17 +32,25 @@ footer {
 
 button {
   padding: 15px 30px;
-  background-color: #4CAF50;
+  background-color: gray;
   color: white;
-  border: 2px solid #4CAF50;
+  border: 2px solid gray;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.1s;  
 }
 
 button:hover {
   background-color: white;
-  color: #4CAF50;
-  border-color: #4CAF50;
+  color: gray;
+  border-color: gray;
+}
+
+button:active {
+  transform: scale(0.95); 
+}
+
+div[style="display: flex; align-items: center;"] {
+  justify-content: flex-end;
 }
