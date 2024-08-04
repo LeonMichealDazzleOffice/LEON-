@@ -19,11 +19,9 @@
     <p>手机号：18703625231</p>
   </div>
 
-  <button id="onlineApplicationBtn">在线申请</button>
+  <button onclick="submitApplication()">在线申请</button>
 
   <script>
-    let isOnlineApplicationStopped = false;
-
     function showNumber() {
       var div = document.getElementById('numberDiv');
       if (div.style.display === 'none') {
@@ -33,16 +31,18 @@
       }
     }
 
-    document.getElementById('onlineApplicationBtn').addEventListener('click', function() {
-      if (isOnlineApplicationStopped) {
-        alert('在线申请已停止，请点击申请注册。');
-      } else {
-        // 在这里添加在线申请的实际逻辑
-        alert('您已点击在线申请。');
-        isOnlineApplicationStopped = true;
-        this.innerHTML = '在线申请已停止';
-      }
-    });
+    function submitApplication() {
+      let phone = prompt('请输入您的手机号：');
+      let email = prompt('请输入您的邮箱：');
+
+      let applicationData = {
+        phone: phone,
+        email: email
+      };
+
+      localStorage.setItem('applicationData', JSON.stringify(applicationData));
+      alert('申请数据已保存。');
+    }
   </script>
 </body>
 
