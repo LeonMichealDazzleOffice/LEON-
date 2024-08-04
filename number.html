@@ -40,7 +40,7 @@
         email: email
       };
 
-      fetch('/submit_data', {
+      fetch('http://127.0.0.1:5000/submit_data', {  
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -54,3 +54,6 @@
       alert('申请数据已发送。');
     }
   </script>
+</body>
+
+</html>
