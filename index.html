@@ -5,66 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leon的官网</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    main h2 {
-      color: #333;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-  </style>
+  <!-- 引入外部样式表，方便统一管理样式 -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
   <header>
+    <!-- 网站头部，标题部分 -->
     <h1>Leon咨询处</h1>
   </header>
   <main>
     <h2>关于个人信息</h2>
+    <!-- 显示个人微信图片 -->
     <img src="wchat.jpg" alt="Leon weixin 的照片" width="200">
+    <!-- 个人介绍段落 -->
     <p>大家好，我是 Leon，拥有多年的行业经验，擅长解决各种复杂问题。我的微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
     <h2>可购买项目</h2>
+    <!-- 项目介绍段落 -->
     <p>我们提供优质的 APPLE ID 咨询服务。</p>
+    <!-- 点击查看手机号的按钮 -->
     <button onclick="showNumber()">查看手机号</button>
-
+    <!-- 合作驻网按钮 -->
     <div style="display: flex; align-items: center;">
       <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
     </div>
   </main>
   <footer>
+    <!-- 网站底部版权信息 -->
     &copy; 2024 Leon的个人网站
   </footer>
 
   <script>
+    // 点击显示手机号的函数
     function showNumber() {
       window.location.href = "number.html";
     }
-
+    // 点击跳转到合作驻网页面的函数
     function goToNextPage() {
       window.location.href = "next_page.html";
     }
