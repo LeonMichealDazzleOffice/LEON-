@@ -51,11 +51,6 @@
     <h2>可购买项目</h2>
     <p>我们提供优质的 APPLE ID 咨询服务。</p>
     <button onclick="showNumber()">查看手机号</button>
-
-    <div style="display: flex; align-items: center;">
-      <img src="qrcode.jpg" alt="二维码" width="200">
-      <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
-    </div>
   </main>
   <footer>
     &copy; 2024 Leon的个人网站
@@ -65,11 +60,21 @@
     function showNumber() {
       window.location.href = "number.html";
     }
-
-    function goToNextPage() {
-      window.location.href = "next_page.html";
-    }
   </script>
+
+  <!-- 新页面 next_page.html 的内容整合在此 -->
+  <h2>合作驻网人物展览</h2>
+  <div style="display: flex; justify-content: space-around;">
+    <div>
+      <img src="person1.jpg" alt="人物 1" width="200">
+      <p>张三</p>
+    </div>
+    <div>
+      <img src="person2.jpg" alt="人物 2" width="200">
+      <p>李四</p>
+    </div>
+  </div>
+
 </body>
 
 </html>
