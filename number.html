@@ -18,18 +18,12 @@
   <div id="numberDiv" style="display: none;">
     <p>手机号：18703625231</p>
   </div>
-  <button onclick="openApplicationForm()">在线申请</button>
-  <div id="applicationForm" style="display: none;">
-    <form action="">
-      <label for="phone">手机号：</label><input type="tel" id="phone" name="phone"><br>
-      <label for="email">邮箱：</label><input type="email" id="email" name="email"><br>
-      <input type="submit" value="提交">
-    </form>
-  </div>
 
-  <button onclick="checkApplied()">已申请的合作</button>
+  <button id="onlineApplicationBtn">在线申请</button>
 
   <script>
+    let isOnlineApplicationStopped = false;
+
     function showNumber() {
       var div = document.getElementById('numberDiv');
       if (div.style.display === 'none') {
@@ -39,18 +33,16 @@
       }
     }
 
-    function openApplicationForm() {
-      var form = document.getElementById('applicationForm');
-      if (form.style.display === 'none') {
-        form.style.display = 'block';
+    document.getElementById('onlineApplicationBtn').addEventListener('click', function() {
+      if (isOnlineApplicationStopped) {
+        alert('在线申请已停止，请点击申请注册。');
       } else {
-        form.style.display = 'none';
+        // 在这里添加在线申请的实际逻辑
+        alert('您已点击在线申请。');
+        isOnlineApplicationStopped = true;
+        this.innerHTML = '在线申请已停止';
       }
-    }
-
-    function checkApplied() {
-      alert("示例：暂无已申请的合作信息");
-    }
+    });
   </script>
 </body>
 
