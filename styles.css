@@ -29,3 +29,28 @@ footer {
   padding: 10px;
   text-align: center;
 }
+
+img {
+  border: 2px solid #333;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+audio {
+  width: 100%;
+}
+
+#myAudio {
+  display: block;
+}
