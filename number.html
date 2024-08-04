@@ -40,8 +40,17 @@
         email: email
       };
 
-      localStorage.setItem('applicationData', JSON.stringify(applicationData));
-      alert('申请数据已保存。');
+      fetch('/submit_data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(applicationData)
+      })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.error('Error:', error));
+
+      alert('申请数据已发送。');
     }
   </script>
- 
