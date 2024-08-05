@@ -24,8 +24,7 @@
   <button onclick="inputCode()">输入合作代码</button>
 
   <script>
-    // 假设从开发者处获取的多个合约代码
-    var contractCodes = ["0000000000003A", "0000000000002A", "0000000000001A"];
+    var contractCodes = ["CONTRACT_CODE_123", "CONTRACT_CODE_456", "CONTRACT_CODE_789"];
 
     function showNumber() {
       var div = document.getElementById('numberDiv');
@@ -43,12 +42,13 @@
     function inputCode() {
       var inputCode = prompt('请输入合约代码');
       if (contractCodes.includes(inputCode)) {
-        alert('代码正确');
+        document.getElementById('result').innerHTML = '该网站所有合作商都是正规合作商。第二合作商提供的商品均留 20%的利润，且所有的利润都会用于优化网站。';
       } else {
         alert('代码错误');
       }
     }
   </script>
+  <div id="result"></div>
 </body>
 
 </html>
