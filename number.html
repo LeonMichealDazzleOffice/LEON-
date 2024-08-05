@@ -24,7 +24,7 @@
   <button onclick="inputCode()">输入合作代码</button>
 
   <script>
-    var contractCodes = ["CONTRACT_CODE_123", "CONTRACT_CODE_456", "CONTRACT_CODE_789"];
+    var contractCodes = ["1U5Z3G2A", "9M4P7F6S", "5R8L2C7X"];
 
     function showNumber() {
       var div = document.getElementById('numberDiv');
@@ -40,7 +40,7 @@
     }
 
     function inputCode() {
-      var inputCode = prompt('请输入合约代码');
+      var inputCode = prompt('请输入合约代码').trim().toUpperCase();
       if (contractCodes.includes(inputCode)) {
         document.getElementById('result').innerHTML = '该网站所有合作商都是正规合作商。第二合作商提供的商品均留 20%的利润，且所有的利润都会用于优化网站。';
       } else {
