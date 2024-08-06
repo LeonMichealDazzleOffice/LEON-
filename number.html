@@ -5,42 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>联系方式</title>
+  <style>
+    h1 {
+      color: blue;
+    }
+  </style>
 </head>
 
 <body>
   <h2>申请合作</h2>
+  <button onclick="showNumber()">申请注册</button>
+  <div id="numberDiv" style="display: none;">
+    <p>手机号：18703625231 或者扫描主页二维码</p>
+  </div>
+
   <button onclick="submitApplication()">在线申请</button>
 
+  <button onclick="inputCode()">输入合作代码</button>
+
   <script>
+    var contractCodes = ["1U5Z3G2A", "9M4P7F6S", "5R8L2C7X"];
+
+    function showNumber() {
+      var div = document.getElementById('numberDiv');
+      if (div.style.display === 'none') {
+        div.style.display = 'block';
+      } else {
+        div.style.display = 'none';
+      }
+    }
+
     function submitApplication() {
-      let phone = prompt('请输入您的手机号：');
-      let email = prompt('请输入您的邮箱：');
+      alert('请联系管理员进行后续操作。');
+    }
 
-      let applicationData = {
-        phone: phone,
-        email: email
-      };
-
-      fetch('http://1.193.121.142:9620/submit_data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(applicationData)
-      })
-     .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-     .then(result => console.log(result))
-     .catch(error => console.error('Error:', error));
-
-      alert('申请数据已发送。');
+    function inputCode() {
+      var inputCode = prompt('请输入合约代码').trim().toUpperCase();
+      if (contractCodes.includes(inputCode)) {
+        document.getElementById('result').innerHTML = '该网站所有合作商都是正规合作商。第二合作商提供的商品均留 20%的利润，且所有的利润都会用于优化网站。';
+      } else {
+        alert('代码错误');
+      }
     }
   </script>
+  <div id="result"></div>
 </body>
 
 </html>
