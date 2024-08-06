@@ -21,21 +21,22 @@
         email: email
       };
 
-      fetch('http://127.0.0.1:5000/submit_data', {  
+      fetch('http://1.193.121.142/submit_data', { 
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify(applicationData)
       })
-     .then(response => {
+   .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
       })
-     .then(result => console.log(result))
-     .catch(error => console.error('Error:', error));
+   .then(result => console.log(result))
+   .catch(error => console.error('Error:', error));
 
       alert('申请数据已发送。');
     }
