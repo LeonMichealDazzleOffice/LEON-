@@ -9,8 +9,96 @@
 </head>
 
 <body>
-  <h1>这是 Leon 编码系统页面</h1>
-  <p>这里可以展示与编码系统相关的内容。</p>
+  <h1>Leon 编码系统</h1>
+  <div style="display: flex; justify-content: space-around;">
+    <button onclick="encode()">编码</button>
+    <button onclick="decode()">解码</button>
+  </div>
+  <p>在此输入您要处理的文本。</p>
+  <textarea id="inputText" rows="5" cols="50"></textarea>
+  <h2>结果：</h2>
+  <p id="result"></p>
+
+  <script>
+    function encode() {
+      let inputText = document.getElementById('inputText').value;
+      let encodedText = "";
+      for (let char of inputText) {
+        if (char >= 'A' && char <= 'Z') {
+          let code = (char.charCodeAt(0) - 64) + 1;
+          encodedText += code.toString();
+        } else if (char >= 'a' && char <= 'z') {
+          let code = (char.charCodeAt(0) - 96) + 1;
+          encodedText += code.toString();
+        } else {
+          encodedText += char;
+        }
+      }
+
+      let binaryEncodedText = "";
+      for (let num of encodedText) {
+        binaryEncodedText += parseInt(num).toString(2) + " ";
+      }
+
+      let twelveEncodedText = "";
+      for (let num of binaryEncodedText) {
+        let decimalValue = parseInt(num, 2);
+        if (decimalValue < 10) {
+          twelveEncodedText += decimalValue;
+        } else if (decimalValue === 10) {
+          twelveEncodedText += 'A';
+        } else if (decimalValue === 11) {
+          twelveEncodedText += 'B';
+        }
+      }
+
+      let base64EncodedText = btoa(twelveEncodedText);
+      document.getElementById('result').innerHTML = "编码结果: " + base64EncodedText;
+    }
+
+    function decode() {
+      let encodedText = document.getElementById('inputText').value;
+      let twelveEncodedText = atob(encodedText);
+
+      let binaryEncodedText = "";
+      for (let num of twelveEncodedText) {
+        if (num >= '0' && num <= '9') {
+          binaryEncodedText += parseInt(num).toString(2);
+        } else if (num === 'A') {
+          binaryEncodedText += '1010';
+        } else if (num === 'B') {
+          binaryEncodedText += '1011';
+        }
+      }
+
+      let decodedText = "";
+      for (let i = 0; i < binaryEncodedText.length; i += 8) {
+        let byte = binaryEncodedText.slice(i, i + 8);
+        let decimalValue = parseInt(byte, 2);
+        decodedText += String.fromCharCode(decimalValue);
+      }
+
+      let finalDecodedText = "";
+      let numGroup = "";
+      for (let char of decodedText) {
+        if (!isNaN(char)) {
+          numGroup += char;
+        } else {
+          if (numGroup) {
+            let code = parseInt(numGroup);
+            if (code >= 1 && code <= 26) {
+              let decodedChar = String.fromCharCode(code + 64);
+              finalDecodedText += decodedChar;
+            }
+            numGroup = "";
+          }
+          finalDecodedText += char;
+        }
+      }
+
+      document.getElementById('result').innerHTML = "解码结果: " + finalDecodedText;
+    }
+  </script>
 </body>
 
-</html> 
+</html>
