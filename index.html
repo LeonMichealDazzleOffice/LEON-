@@ -4,35 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leon的官网</title>
+  <title>Leon 的官网</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
   <header>
-    <h1>Leon咨询处</h1>
+    <h1>Leon 咨询处</h1>
   </header>
   <main>
     <h2>关于个人信息</h2>
     <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
-    <p>大家好，我是网站负责人Leon，微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
+    <p>大家好，我是网站负责人 Leon，微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
     <h2>可购买项目</h2>
-    <p>我们提供优质的 APPLE ID 定制 以及其他。包括游戏护航服务 （王者荣耀 和平地铁护航 pubg地铁护航 暗区突围护航 等）服务。</p>
+    <p>我们提供优质的 APPLE ID 定制 以及其他。包括游戏护航服务 （王者荣耀 和平地铁护航 pubg 地铁护航 暗区突围护航 等）服务。</p>
     <button onclick="showNumber()">查看手机号</button>
     <div style="display: flex; align-items: center;">
       <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
+      <button onclick="goToLeonCodeSystem()">Leon 编码系统</button>
     </div>
   </main>
   <footer>
-    &copy; 2024 Leon的个人网站
+    &copy; 2024 Leon 的个人网站
   </footer>
 
   <script>
     function showNumber() {
       window.location.href = "number.html";
     }
+
     function goToNextPage() {
       window.location.href = "next_page.html";
+    }
+
+    function goToLeonCodeSystem() {
+      window.location.href = "LeonCodeSystem.html";
     }
   </script>
 </body>
