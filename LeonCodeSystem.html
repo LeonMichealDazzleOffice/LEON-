@@ -22,23 +22,35 @@
   <script>
     function encode() {
       let inputText = document.getElementById('inputText').value;
-      let binaryEncodedText = '';
+      let encodedText = '';
       for (let char of inputText) {
-        binaryEncodedText += char.charCodeAt(0).toString(2) + ' ';
+        let asciiCode = char.charCodeAt(0);
+        let encodedCode = asciiCode * 2;
+        encodedText += encodedCode.toString();
       }
-      let base64EncodedText = btoa(binaryEncodedText);
-      document.getElementById('result').innerHTML = "编码结果: " + base64EncodedText;
+      document.getElementById('result').innerHTML = "编码结果: " + encodedText;
     }
 
     function decode() {
       let encodedText = document.getElementById('inputText').value;
-      let binaryEncodedText = atob(encodedText);
-      binaryEncodedText = binaryEncodedText.replace(/\s+/g, '');
       let decodedText = '';
-      for (let i = 0; i < binaryEncodedText.length; i += 8) {
-        let byte = binaryEncodedText.slice(i, i + 8);
-        let decimalValue = parseInt(byte, 2);
-        decodedText += String.fromCharCode(decimalValue);
+      let numGroup = '';
+      for (let char of encodedText) {
+        if (!isNaN(char)) {
+          numGroup += char;
+        } else {
+          if (numGroup) {
+            let encodedCode = parseInt(numGroup);
+            let decodedCode = encodedCode / 2;
+            decodedText += String.fromCharCode(decodedCode);
+            numGroup = '';
+          }
+        }
+      }
+      if (numGroup) {
+        let encodedCode = parseInt(numGroup);
+        let decodedCode = encodedCode / 2;
+        decodedText += String.fromCharCode(decodedCode);
       }
       document.getElementById('result').innerHTML = "解码结果: " + decodedText;
     }
