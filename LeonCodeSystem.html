@@ -4,19 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leon 编码系统</title>
+  <title>编码系统</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-  <h1>Leon 编码系统</h1>
+  <h1>编码系统</h1>
   <div style="display: flex; justify-content: space-around;">
     <button onclick="encode()">编码</button>
-    <button onclick="decode()">解码</button>
   </div>
   <p>在此输入您要处理的文本。</p>
   <textarea id="inputText" rows="5" cols="50"></textarea>
-  <h2>结果：</h2>
+  <h2>编码结果：</h2>
   <p id="result"></p>
 
   <script>
@@ -29,35 +28,6 @@
         encodedText += encodedCode.toString();
       }
       document.getElementById('result').innerHTML = "编码结果: " + encodedText;
-    }
-
-    function decode() {
-      let encodedText = document.getElementById('inputText').value;
-      console.log('输入的编码:', encodedText);
-      let decodedText = '';
-      let numGroup = '';
-      for (let i = 0; i < encodedText.length; i++) {
-        let char = encodedText.charAt(i);
-        if (!isNaN(char)) {
-          numGroup += char;
-        } else {
-          if (numGroup!== '') {
-            let encodedCode = parseInt(numGroup);
-            console.log('转换的编码:', encodedCode);
-            let decodedCode = Math.floor(encodedCode / 2);
-            console.log('解码的值:', decodedCode);
-            decodedText += String.fromCodePoint(decodedCode);
-            numGroup = '';
-          }
-          decodedText += char;
-        }
-      }
-      if (numGroup!== '') {
-        let encodedCode = parseInt(numGroup);
-        let decodedCode = Math.floor(encodedCode / 2);
-        decodedText += String.fromCodePoint(decodedCode);
-      }
-      document.getElementById('result').innerHTML = "解码结果: " + decodedText;
     }
   </script>
 </body>
