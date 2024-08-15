@@ -25,12 +25,8 @@
       let encodedText = '';
       for (let char of inputText) {
         let codePoint = char.codePointAt(0);
-        if (!isNaN(codePoint) && codePoint >= 0) {
-          let encodedCode = codePoint * 2;
-          encodedText += encodedCode.toString();
-        } else {
-          encodedText += char; 
-        }
+        let encodedCode = codePoint * 2;
+        encodedText += encodedCode.toString();
       }
       document.getElementById('result').innerHTML = "编码结果: " + encodedText;
     }
@@ -47,9 +43,7 @@
           if (numGroup) {
             let encodedCode = parseInt(numGroup);
             let decodedCode = Math.floor(encodedCode / 2);
-            if (decodedCode >= 0) {
-              decodedText += String.fromCodePoint(decodedCode);
-            }
+            decodedText += String.fromCodePoint(decodedCode);
             numGroup = '';
           }
           decodedText += char;
@@ -58,9 +52,7 @@
       if (numGroup) {
         let encodedCode = parseInt(numGroup);
         let decodedCode = Math.floor(encodedCode / 2);
-        if (decodedCode >= 0) {
-          decodedText += String.fromCodePoint(decodedCode);
-        }
+        decodedText += String.fromCodePoint(decodedCode);
       }
       document.getElementById('result').innerHTML = "解码结果: " + decodedText;
     }
