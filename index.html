@@ -22,6 +22,7 @@
     <div style="display: flex; align-items: center;">
       <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
       <button onclick="checkPassword()">Leon 编码系统</button>
+      <button onclick="goToEscortZone()">护航专区</button>
     </div>
   </main>
   <footer>
@@ -44,6 +45,10 @@
       } else {
         alert("密码错误，请重新输入。");
       }
+    }
+
+    function goToEscortZone() {
+      window.location.href = "escort_zone.html";
     }
 
   </script>
