@@ -23,6 +23,7 @@
       <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
       <button onclick="checkPassword()">Leon 编码系统</button>
       <button onclick="goToEscortZone()">护航专区</button>
+      <button onclick="goToFenhaoPage()">HP 封号系统 API</button>
     </div>
   </main>
   <footer>
@@ -51,6 +52,14 @@
       window.location.href = "Huhang.html";
     }
 
+    function goToFenhaoPage() {
+      let fenhaoPassword = prompt("请输入 HP 封号系统密码：");
+      if (fenhaoPassword === "HPJY1212121") {
+        window.location.href = "Fenhao.html";
+      } else {
+        alert("密码错误，请重新输入。");
+      }
+    }
   </script>
 </body>
 
