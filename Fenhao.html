@@ -25,16 +25,14 @@
             <select name="banCall" id="banCall">
                 <option value="1800 端口">1800 端口</option>
             </select>
-            <input type="text" id="verificationNumber" placeholder="验证单号" readonly>
+            <input type="text" id="verificationNumber" placeholder="验证单号" readonly style="display:none;">
         </div>
         <div style="display: flex; justify-content: center; margin-top: 20px;">
             <button onclick="confirmBan()">确认封号</button>
             <button onclick="cancelBan()">放弃</button>
         </div>
-        <input type="text" id="displayOnlyNumber" readonly style="display:none;">
     </div>
     <script>
-        // 生成随机验证单号
         function generateVerificationNumber() {
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let verificationNumber = '';
@@ -46,8 +44,6 @@
             return verificationNumber;
         }
 
-        document.getElementById('verificationNumber').value = generateVerificationNumber();
-
         function confirmBan() {
             const uid = document.getElementById('uidInput').value;
             const reason = document.getElementById('reasonInput').value;
@@ -55,7 +51,10 @@
                 alert("UID 和封号原因不能为空！");
                 return;
             }
-            alert("请在 和平精英 搜索模块确认是否封号");
+            const verificationNumberInput = document.getElementById('verificationNumber');
+            verificationNumberInput.value = generateVerificationNumber();
+            verificationNumberInput.style.display = 'inline-block';
+            alert("单号已经生成，请复制后在输入其他账号。");
         }
 
         function cancelBan() {
