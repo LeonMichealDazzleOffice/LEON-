@@ -33,6 +33,9 @@
         </div>
     </div>
     <script>
+        let lastUid = '';
+        let lastReason = '';
+
         function generateVerificationNumber() {
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let verificationNumber = '';
@@ -51,10 +54,16 @@
                 alert("UID 和封号原因不能为空！");
                 return;
             }
+            if (uid === lastUid && reason === lastReason) {
+                alert("该账号已封禁，请不要输入相同账号。");
+                return;
+            }
             const verificationNumberInput = document.getElementById('verificationNumber');
             verificationNumberInput.value = generateVerificationNumber();
             verificationNumberInput.style.display = 'inline-block';
             alert("单号已经生成，请复制后在输入其他账号。");
+            lastUid = uid;
+            lastReason = reason;
         }
 
         function cancelBan() {
