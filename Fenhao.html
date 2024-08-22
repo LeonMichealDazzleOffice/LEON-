@@ -31,9 +31,10 @@
             <button onclick="confirmBan()">确认封号</button>
             <button onclick="cancelBan()">放弃</button>
         </div>
-        <input type="text" id="displayOnlyNumber" readonly>
+        <input type="text" id="displayOnlyNumber" readonly style="display:none;">
     </div>
     <script>
+        // 生成随机验证单号
         function generateVerificationNumber() {
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let verificationNumber = '';
@@ -46,7 +47,6 @@
         }
 
         document.getElementById('verificationNumber').value = generateVerificationNumber();
-        document.getElementById('displayOnlyNumber').value = generateVerificationNumber();
 
         function confirmBan() {
             const uid = document.getElementById('uidInput').value;
