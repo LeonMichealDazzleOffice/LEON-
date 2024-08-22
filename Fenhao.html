@@ -10,16 +10,51 @@
     <div style="text-align: center;">
         <img src="HPJY.jpg" alt="HP 相关照片" width="300">
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input type="text" placeholder="输入 UID" style="width: 200px; margin-right: 10px;">
-            <input type="text" placeholder="输入封号原因" style="width: 200px;">
+            <input type="text" placeholder="输入 UID" style="width: 200px; margin-right: 10px;" id="uidInput">
+            <input type="text" placeholder="输入封号原因" style="width: 200px;" id="reasonInput">
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <select name="patrolSystem" id="patrolSystem">
+                <option value="普通巡查">普通巡查</option>
+                <option value="猎鹰巡查">猎鹰巡查</option>
+            </select>
+            <select name="area" id="area">
+                <option value="QQ">QQ</option>
+                <option value="微信">微信</option>
+            </select>
+            <select name="banCall" id="banCall">
+                <option value="1800 端口">1800 端口</option>
+            </select>
+            <input type="text" id="verificationNumber" placeholder="验证单号" readonly>
         </div>
         <div style="display: flex; justify-content: center; margin-top: 20px;">
             <button onclick="confirmBan()">确认封号</button>
             <button onclick="cancelBan()">放弃</button>
         </div>
+        <input type="text" id="displayOnlyNumber" readonly>
     </div>
     <script>
+        function generateVerificationNumber() {
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let verificationNumber = '';
+            verificationNumber += letters.charAt(Math.floor(Math.random() * letters.length));
+            verificationNumber += letters.charAt(Math.floor(Math.random() * letters.length));
+            for (let i = 0; i < 10; i++) {
+                verificationNumber += Math.floor(Math.random() * 10);
+            }
+            return verificationNumber;
+        }
+
+        document.getElementById('verificationNumber').value = generateVerificationNumber();
+        document.getElementById('displayOnlyNumber').value = generateVerificationNumber();
+
         function confirmBan() {
+            const uid = document.getElementById('uidInput').value;
+            const reason = document.getElementById('reasonInput').value;
+            if (!uid ||!reason) {
+                alert("UID 和封号原因不能为空！");
+                return;
+            }
             alert("请在 和平精英 搜索模块确认是否封号");
         }
 
