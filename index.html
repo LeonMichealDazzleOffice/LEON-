@@ -17,7 +17,7 @@
     <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
     <p>大家好，我是网站负责人 Leon，微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
     <h2>可购买项目</h2>
-    <p>我们提供优质的 APPLE ID 定制 以及和平精英护航。</p>
+    <p>我们提供优质的 APPLE ID 定制以及和平精英护航。</p>
     <button onclick="showNumber()">查看手机号</button>
     <div style="display: flex; align-items: center;">
       <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
@@ -25,6 +25,7 @@
       <button onclick="goToEscortZone()">护航专区</button>
       <button onclick="goToFenhaoPage()">HP 封号系统 API</button>
     </div>
+    <button onclick="goToNewPage()">激活 o/w 代码</button>
   </main>
   <footer>
     &copy; 2024 Leon 的个人网站
@@ -59,6 +60,10 @@
       } else {
         alert("密码错误，请重新输入。");
       }
+    }
+
+    function goToNewPage() {
+      window.location.href = "https://massgrave.dev/";
     }
   </script>
 </body>
