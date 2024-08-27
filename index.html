@@ -29,7 +29,7 @@
     <button onclick="downloadOffice()">下载 Office</button>
   </main>
   <footer>
-    &copy; 2024 Leon 的个人网站
+    <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon 的个人网站</a>
   </footer>
 
   <script>
@@ -70,6 +70,16 @@
     function downloadOffice() {
       window.location.href = "https://otp.landian.vip/zh-cn/download.html";
     }
+
+    document.getElementById('copyrightLink').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = "thanks_page.html";
+      setTimeout(function () {
+        window.scrollTo(0, document.body.scrollHeight);
+        const audio = new Audio('malave.mp3');
+        audio.play();
+      }, 500);
+    });
   </script>
 </body>
 
