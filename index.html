@@ -27,6 +27,7 @@
     </div>
     <button onclick="goToNewPage()">激活 o/w 代码</button>
     <button onclick="downloadOffice()">下载 Office</button>
+    <button onclick="goToLottery()">抽奖系统</button>
   </main>
   <footer>
     <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon 的个人网站</a>
@@ -69,6 +70,10 @@
 
     function downloadOffice() {
       window.location.href = "https://otp.landian.vip/zh-cn/download.html";
+    }
+
+    function goToLottery() {
+      window.location.href = "choujiangxit.html";
     }
 
     document.getElementById('copyrightLink').addEventListener('click', function (e) {
