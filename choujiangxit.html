@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖程序</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+       .result {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Leon 编码系统-程序分区</h1>
+    <button id="drawButton">开始随机抽取</button>
+    <div class="result"></div>
+
+    <script>
+        const names = [
+            "李君浩",
+            "胡昭宇",
+            "贾松睿",
+            "付子旭",
+            "周品宇",
+            "周于翔",
+            "刘文嵩",
+            "徐晨曦",
+            "窦林茂",
+            "张俊轩",
+            "张梓轩",
+            "苏浩宇",
+            "袁圣皓",
+            "李炫乐",
+            "许煜博",
+            "耿远航",
+            "黄琰哲",
+            "牛宇轩",
+            "朱林浩",
+            "冯子轩",
+            "樊柯均",
+            "李奥帅",
+            "王晨宇",
+            "刘凯文",
+            "肖腾",
+            "刘奥涵",
+            "刘道兴",
+            "王栩恺",
+            "吴亿豪",
+            "何佳霖",
+            "张思雅",
+            "陈子墨",
+            "张艺彤",
+            "张淼淼",
+            "程钰欣",
+            "张紫涵",
+            "杨一彤",
+            "王琳菲",
+            "刘舒雅",
+            "梁菲凡",
+            "孔瑞涵",
+            "程新月",
+            "赵紫涵",
+            "范紫晗",
+            "许恒嘉",
+            "谭舒丹",
+            "王涵",
+            "姜雨晗",
+            "郎艺珂",
+            "胡蝶",
+            "刘希蕊",
+            "周雨彤",
+            "贾亦萱",
+            "李雨馨",
+            "刘云舒",
+            "齐静文",
+            "张佳优",
+            "王梦瑶",
+            "祝诺冰",
+            "张芮文",
+            "赵婧雯",
+            "李云鸽"
+        ];
+
+        document.getElementById('drawButton').addEventListener('click', function () {
+            const selectedNames = [];
+            for (let i = 0; i < names.length; i++) {
+                const randomNumber = Math.random();
+                if (randomNumber < 0.2) {
+                    selectedNames.push(names[i]);
+                }
+            }
+            const resultText = `中奖者：${selectedNames.join(', ')}`;
+            document.querySelector('.result').textContent = resultText;
+        });
+    </script>
+</body>
+
+</html>
