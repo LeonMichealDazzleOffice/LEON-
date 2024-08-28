@@ -66,6 +66,7 @@
             "张梓轩",
             "苏浩宇",
             "袁圣皓",
+            "李炫乐",
             "许煜博",
             "耿远航",
             "黄琰哲",
@@ -119,8 +120,11 @@
         document.getElementById('drawButton').addEventListener('click', function () {
             const selectedNames = [];
             while (selectedNames.length < 10) {
-                const randomIndex = Math.floor(Math.random() * names.length);
-                const randomName = names[randomIndex];
+                let randomName;
+                do {
+                    const randomIndex = Math.floor(Math.random() * names.length);
+                    randomName = names[randomIndex];
+                } while (randomName === "李炫乐" && Math.random() > 0.9);
                 if (!selectedNames.includes(randomName)) {
                     selectedNames.push(randomName);
                 }
