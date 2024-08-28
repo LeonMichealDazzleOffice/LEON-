@@ -38,7 +38,7 @@
             background-color: darkred;
         }
 
-       .result {
+      .result {
             font-size: 48px;
             text-align: center;
             margin-top: 20px;
@@ -119,10 +119,11 @@
 
         document.getElementById('drawButton').addEventListener('click', function () {
             const selectedNames = [];
-            for (let i = 0; i < names.length; i++) {
-                const randomNumber = Math.random();
-                if (randomNumber < 0.2) {
-                    selectedNames.push(names[i]);
+            while (selectedNames.length < 10) {
+                const randomIndex = Math.floor(Math.random() * names.length);
+                const randomName = names[randomIndex];
+                if (!selectedNames.includes(randomName)) {
+                    selectedNames.push(randomName);
                 }
             }
             const resultText = `中奖者：${selectedNames.join(', ')}`;
