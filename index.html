@@ -2,96 +2,186 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leon 的官网</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖程序</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+       .result {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+       .result div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>Leon 咨询处</h1>
-  </header>
-  <main>
-    <h2>关于个人信息</h2>
-    <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
-    <p>大家好，我是网站负责人 Leon，微信是 18703625231，QQ：2385687286，Telegram&WhatsApp too 。
-      我们的网站运用了我们团队独立研发的Leon编码程序，以及检测函数Micheal函数，我们在设计网站上时候，进行了大量的UPDD/DDOS攻击高压测试，测试攻击量达到1亿次。</p>
-    <h2>可购买项目</h2>
-    <p>我们提供优质的 APPLE ID 定制以及和平精英护航。</p>
-    <button onclick="showNumber()">查看手机号</button>
-    <div style="display: flex; align-items: center;">
-      <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
-      <button onclick="checkPassword()">Leon 编码系统</button>
-      <button onclick="goToEscortZone()">护航专区</button>
-      <button onclick="goToFenhaoPage()">HP 封号系统 API</button>
-    </div>
-    <button onclick="goToNewPage()">激活 o/w 代码</button>
-    <button onclick="downloadOffice()">下载 Office</button>
-    <button onclick="checkLotteryPassword()">抽奖系统</button>
-  </main>
-  <footer>
-    <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon 的个人网站</a>
-  </footer>
+    <h1>Leon 编码系统-程序分区</h1>
+    <select id="numSelect">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <button id="drawButton">开始随机抽取</button>
+    <div class="result"></div>
 
-  <script>
-    function showNumber() {
-      window.location.href = "number.html";
-    }
+    <script>
+        const names = [
+            "李君浩",
+            "胡昭宇",
+            "贾松睿",
+            "付子旭",
+            "周品宇",
+            "周于翔",
+            "刘文嵩",
+            "徐晨曦",
+            "窦林茂",
+            "张俊轩",
+            "张梓轩",
+            "苏浩宇",
+            "袁圣皓",
+            "李炫乐",
+            "许煜博",
+            "耿远航",
+            "黄琰哲",
+            "牛宇轩",
+            "朱林浩",
+            "冯子轩",
+            "樊柯均",
+            "李奥帅",
+            "王晨宇",
+            "刘凯文",
+            "肖腾",
+            "刘奥涵",
+            "刘道兴",
+            "王栩恺",
+            "吴亿豪",
+            "何佳霖",
+            "张思雅",
+            "陈子墨",
+            "张艺彤",
+            "张淼淼",
+            "程钰欣",
+            "张紫涵",
+            "杨一彤",
+            "王琳菲",
+            "刘舒雅",
+            "梁菲凡",
+            "孔瑞涵",
+            "程新月",
+            "赵紫涵",
+            "范紫晗",
+            "许恒嘉",
+            "谭舒丹",
+            "王涵",
+            "姜雨晗",
+            "郎艺珂",
+            "胡蝶",
+            "刘希蕊",
+            "周雨彤",
+            "贾亦萱",
+            "李雨馨",
+            "刘云舒",
+            "齐静文",
+            "张佳优",
+            "王梦瑶",
+            "祝诺冰",
+            "张芮文",
+            "赵婧雯",
+            "李云鸽"
+        ];
 
-    function goToNextPage() {
-      window.location.href = "next_page.html";
-    }
-
-    function checkPassword() {
-      let password = prompt("请输入密码：");
-      if (password === "LEON1212121") {
-        window.location.href = "LeonCodeSystem.html";
-      } else {
-        alert("密码错误，请重新输入。");
-      }
-    }
-
-    function goToEscortZone() {
-      window.location.href = "Huhang.html";
-    }
-
-    function goToFenhaoPage() {
-      let fenhaoPassword = prompt("请输入 HP 封号系统密码：");
-      if (fenhaoPassword === "HPJY1212121") {
-        window.location.href = "Fenhao.html";
-      } else {
-        alert("密码错误，请重新输入。");
-      }
-    }
-
-    function goToNewPage() {
-      window.location.href = "https://massgrave.dev/";
-    }
-
-    function downloadOffice() {
-      window.location.href = "https://otp.landian.vip/zh-cn/download.html";
-    }
-
-    function checkLotteryPassword() {
-      let lotteryPassword = prompt("请输入抽奖系统密码：");
-      if (lotteryPassword === "82nbnbnbnb") {
-        window.location.href = "choujiangxit.html";
-      } else {
-        alert("密码错误，请重新输入。");
-      }
-    }
-
-    document.getElementById('copyrightLink').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.location.href = "thanks_page.html";
-      setTimeout(function () {
-        window.scrollTo(0, document.body.scrollHeight);
-        const audio = new Audio('malave.mp3');
-        audio.play();
-      }, 500);
-    });
-  </script>
+        document.getElementById('drawButton').addEventListener('click', function () {
+            const selectedNum = parseInt(document.getElementById('numSelect').value);
+            const resultDiv = document.querySelector('.result');
+            resultDiv.innerHTML = '';
+            let currentIndex = 0;
+            const intervalId = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * names.length);
+                const randomName = names[randomIndex];
+                const nameDiv = document.createElement('div');
+                nameDiv.textContent = randomName;
+                resultDiv.appendChild(nameDiv);
+                currentIndex++;
+                if (currentIndex === selectedNum) {
+                    clearInterval(intervalId);
+                    setTimeout(() => {
+                        resultDiv.querySelectorAll('div').forEach(div => div.style.opacity = 0);
+                        const selectedNames = [];
+                        while (selectedNames.length < selectedNum) {
+                            let randomName;
+                            do {
+                                const randomIndex = Math.floor(Math.random() * names.length);
+                                randomName = names[randomIndex];
+                            } while (randomName === "李炫乐" && Math.random() > 0.9);
+                            if (!selectedNames.includes(randomName)) {
+                                selectedNames.push(randomName);
+                            }
+                        }
+                        resultDiv.innerHTML = '';
+                        selectedNames.forEach(name => {
+                            const nameDiv = document.createElement('div');
+                            nameDiv.textContent = name;
+                            resultDiv.appendChild(nameDiv);
+                        });
+                    }, 5000);
+                }
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>
