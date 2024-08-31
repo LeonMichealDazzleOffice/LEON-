@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖程序</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+       .result {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+       .result div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Leon 编码系统-程序分区</h1>
+    <select id="numSelect">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <button id="drawButton">开始随机抽取</button>
+    <div class="result"></div>
+    <script>
+        document.getElementById('drawButton').addEventListener('click', function () {
+            const selectedNum = parseInt(document.getElementById('numSelect').value);
+            const resultDiv = document.querySelector('.result');
+            resultDiv.innerHTML = '';
+            let currentIndex = 0;
+            const intervalId = setInterval(() => {
+                fetch('/draw', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `numSelect=${selectedNum}`
+                })
+                   .then(response => response.json())
+                   .then(data => {
+                        const randomName = data.winners[Math.floor(Math.random() * data.winners.length)];
+                        const nameDiv = document.createElement('div');
+                        nameDiv.textContent = randomName;
+                        resultDiv.appendChild(nameDiv);
+                        currentIndex++;
+                        if (currentIndex === selectedNum) {
+                            clearInterval(intervalId);
+                            setTimeout(() => {
+                                resultDiv.querySelectorAll('div').forEach(div => div.style.opacity = 0);
+                                fetch('/draw', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    body: `numSelect=${selectedNum}`
+                                })
+                                   .then(response => response.json())
+                                   .then(data => {
+                                        resultDiv.innerHTML = '';
+                                        data.winners.forEach(name => {
+                                            const nameDiv = document.createElement('div');
+                                            nameDiv.textContent = name;
+                                            resultDiv.appendChild(nameDiv);
+                                        });
+                                    });
+                            }, 5000);
+                        }
+                    });
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
