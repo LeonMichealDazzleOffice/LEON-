@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>抽奖程序（无服务器）</title>
+    <title>抽奖程序</title>
     <style>
         body {
             margin: 0;
@@ -44,19 +44,10 @@
             background-color: darkred;
         }
 
-       .result {
+      .result {
             font-size: 48px;
             text-align: center;
             margin-top: 20px;
-            position: relative;
-        }
-
-       .result div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease;
         }
     </style>
 </head>
@@ -146,40 +137,19 @@
 
         document.getElementById('drawButton').addEventListener('click', function () {
             const selectedNum = parseInt(document.getElementById('numSelect').value);
-            const resultDiv = document.querySelector('.result');
-            resultDiv.innerHTML = '';
-            let currentIndex = 0;
-            const intervalId = setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * names.length);
-                const randomName = names[randomIndex];
-                const nameDiv = document.createElement('div');
-                nameDiv.textContent = randomName;
-                resultDiv.appendChild(nameDiv);
-                currentIndex++;
-                if (currentIndex === selectedNum) {
-                    clearInterval(intervalId);
-                    setTimeout(() => {
-                        resultDiv.querySelectorAll('div').forEach(div => div.style.opacity = 0);
-                        const selectedNames = [];
-                        while (selectedNames.length < selectedNum) {
-                            let randomName;
-                            do {
-                                const randomIndex = Math.floor(Math.random() * names.length);
-                                randomName = names[randomIndex];
-                            } while (randomName === "李炫乐" && Math.random() > 0.9);
-                            if (!selectedNames.includes(randomName)) {
-                                selectedNames.push(randomName);
-                            }
-                        }
-                        resultDiv.innerHTML = '';
-                        selectedNames.forEach(name => {
-                            const nameDiv = document.createElement('div');
-                            nameDiv.textContent = name;
-                            resultDiv.appendChild(nameDiv);
-                        });
-                    }, 5000);
+            const selectedNames = [];
+            while (selectedNames.length < selectedNum) {
+                let randomName;
+                do {
+                    const randomIndex = Math.floor(Math.random() * names.length);
+                    randomName = names[randomIndex];
+                } while (randomName === "李炫乐" && Math.random() > 0.9);
+                if (!selectedNames.includes(randomName)) {
+                    selectedNames.push(randomName);
                 }
-            }, 500);
+            }
+            const resultText = `中奖者：${selectedNames.join(', ')}`;
+            document.querySelector('.result').textContent = resultText;
         });
     </script>
 </body>
