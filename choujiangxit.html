@@ -44,10 +44,15 @@
             background-color: darkred;
         }
 
-      .result {
+       .result {
             font-size: 48px;
             text-align: center;
             margin-top: 20px;
+        }
+
+       .loading-animation {
+            font-size: 24px;
+            display: none;
         }
     </style>
 </head>
@@ -68,6 +73,7 @@
     </select>
     <button id="drawButton">开始随机抽取</button>
     <div class="result"></div>
+    <div class="loading-animation">加载中...</div>
 
     <script>
         const names = [
@@ -136,6 +142,8 @@
         ];
 
         document.getElementById('drawButton').addEventListener('click', function () {
+            const loadingAnimation = document.querySelector('.loading-animation');
+            loadingAnimation.style.display = 'block';
             const selectedNum = parseInt(document.getElementById('numSelect').value);
             const selectedNames = [];
             while (selectedNames.length < selectedNum) {
@@ -150,6 +158,7 @@
             }
             const resultText = `中奖者：${selectedNames.join(', ')}`;
             document.querySelector('.result').textContent = resultText;
+            loadingAnimation.style.display = 'none';
         });
     </script>
 </body>
