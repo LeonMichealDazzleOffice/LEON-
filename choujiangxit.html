@@ -44,13 +44,13 @@
             background - color: darkred;
         }
 
-    .result {
+   .result {
             font - size: 48px;
             text - align: center;
             margin - top: 20px;
         }
 
-    .loading - animation {
+   .loading - animation {
             font - size: 24px;
             display: none;
         }
@@ -66,17 +66,18 @@
     <select id="functionSelect">
         <option value="Leon">Leon 函数</option>
         <option value="Michael">Michael 函数</option>
+        <option value="LEONAI">LEONAI 函数</option>
     </select>
     <select id="portSelect">
-      <option value="1023">1023 端口</option>
-      <option value="8012">8012 端口</option>
-      <option value="COTI">COTI 端口</option>
-      <option value="CENT">CENT 端口</option>
-      <option value="CIPP">CIPP 端口</option>
-      <option value="1087">1087 端口</option>
-      <option value="1012">1012 端口</option>
-      <option value="1056">1056 端口</option>
-      <option value="AI">AI 端口</option>
+        <option value="1023">1023 端口</option>
+        <option value="8012">8012 端口</option>
+        <option value="COTI">COTI 端口</option>
+        <option value="CENT">CENT 端口</option>
+        <option value="CIPP">CIPP 端口</option>
+        <option value="1087">1087 端口</option>
+        <option value="1012">1012 端口</option>
+        <option value="1056">1056 端口</option>
+        <option value="AI">AI 端口</option>
     </select>
     <select id="numSelect">
         <option value="1">1</option>
@@ -241,9 +242,7 @@
             }
             const selectedFunction = document.getElementById('functionSelect').value;
             const selectedPort = document.getElementById('portSelect').value;
-            console.log("选择的函数:", selectedFunction);
-            console.log("选择的端口:", selectedPort);
-            const resultText = `中奖者：${resultNames.join(', ')}`;
+            const resultText = `选择的函数:${selectedFunction}, 选择的端口:${selectedPort}, 中奖者：${resultNames.join(', ')}`;
             document.querySelector('.result').textContent = resultText;
             loadingAnimation.style.display = 'none';
         });
