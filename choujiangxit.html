@@ -2,78 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device - width, initial - scale=1.0">
     <title>抽奖程序</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: black;
+            background - color: black;
             color: white;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            flex - direction: column;
+            justify - content: center;
+            align - items: center;
             height: 100vh;
         }
 
         h1 {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 20px;
+            font - size: 36px;
+            text - align: center;
+            margin - bottom: 20px;
         }
 
         select {
             padding: 10px;
-            font-size: 18px;
-            margin-bottom: 20px;
+            font - size: 18px;
+            margin - bottom: 20px;
         }
 
         button {
             padding: 15px 30px;
-            font-size: 24px;
-            background-color: red;
+            font - size: 24px;
+            background - color: red;
             color: white;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background - color 0.3s ease;
         }
 
         button:hover {
-            background-color: darkred;
+            background - color: darkred;
         }
 
-       .result {
-            font-size: 48px;
-            text-align: center;
-            margin-top: 20px;
+    .result {
+            font - size: 48px;
+            text - align: center;
+            margin - top: 20px;
         }
 
-       .loading-animation {
-            font-size: 24px;
+    .loading - animation {
+            font - size: 24px;
             display: none;
         }
     </style>
 </head>
 
 <body>
-    <h1>Leon 编码系统-程序分区</h1>
-    <select id="portSelect">
-        <option value="1080">1080 端口</option>
-        <option value="1022">1022 端口</option>
-        <option value="1022">1023 端口</option>
-        <option value="1022">8012 端口</option>
-        <option value="1022">COTI 端口</option>
-        <option value="1022">CENT 端口</option>
-        <option value="1022">CIPP 端口</option>
-        <option value="1022">1087 端口</option>
-        <option value="1022">1012 端口</option>
-        <option value="1022">1056 端口</option>
+    <h1>Leon 编码系统 - 程序分区</h1>
+    <select id="classSelect">
+        <option value="81">81 班</option>
+        <option value="82">82 班</option>
     </select>
     <select id="functionSelect">
         <option value="Leon">Leon 函数</option>
         <option value="Michael">Michael 函数</option>
+    </select>
+    <select id="portSelect">
+      <option value="1023">1023 端口</option>
+      <option value="8012">8012 端口</option>
+      <option value="COTI">COTI 端口</option>
+      <option value="CENT">CENT 端口</option>
+      <option value="CIPP">CIPP 端口</option>
+      <option value="1087">1087 端口</option>
+      <option value="1012">1012 端口</option>
+      <option value="1056">1056 端口</option>
+      <option value="AI">AI 端口</option>
     </select>
     <select id="numSelect">
         <option value="1">1</option>
@@ -89,11 +92,72 @@
     </select>
     <button id="drawButton">开始随机抽取</button>
     <div class="result"></div>
-    <div class="loading-animation">加载中...</div>
+    <div class="loading - animation">加载中...</div>
 
     <script>
-        const names = [
-            "李君浩",
+        let class81Names = ["郑笑晓",
+            "康炜岩",
+            "刘一诺",
+            "刘雨晴",
+            "杨梓萌",
+            "侯俊虎",
+            "韩丛晴",
+            "娄浩泽",
+            "石文静",
+            "朱雨萱",
+            "周钲涵",
+            "何宏靓",
+            "李照阁",
+            "刘佳乐",
+            "王子雅",
+            "王思颖",
+            "刘思雨",
+            "葛建业",
+            "苑莉珠",
+            "杜香萌",
+            "毛家润",
+            "司浩轩",
+            "邱天宇",
+            "焦瑾萱",
+            "张思雨",
+            "张雨琛",
+            "赵乐源",
+            "李雨晨",
+            "程子怡",
+            "吴瑞",
+            "孟如媛",
+            "张梦涵",
+            "窦帅",
+            "周紫涵",
+            "李金磊",
+            "郝思博",
+            "朱兰雨",
+            "杨豹",
+            "胡紫涵",
+            "王鹏举",
+            "张许诺",
+            "赵明阳",
+            "付恩萌",
+            "陈梦雅",
+            "曾兰格",
+            "李慧轩",
+            "邹祎明",
+            "裴明淇",
+            "何子晨",
+            "李瑞程",
+            "张语浩",
+            "张帅杰",
+            "揭语辰",
+            "寇亢",
+            "王一轩",
+            "王宇文",
+            "付永豪",
+            "聂政林",
+            "王浩龙",
+            "高晨浩",
+            "姜炳言",
+            "杨子言"];
+        let class82Names = ["李君浩",
             "胡昭宇",
             "贾松睿",
             "付子旭",
@@ -154,25 +218,32 @@
             "祝诺冰",
             "张芮文",
             "赵婧雯",
-            "李云鸽"
-        ];
+            "李云鸽"];
 
         document.getElementById('drawButton').addEventListener('click', function () {
-            const loadingAnimation = document.querySelector('.loading-animation');
+            const loadingAnimation = document.querySelector('.loading - animation');
             loadingAnimation.style.display = 'block';
+            const selectedClass = document.getElementById('classSelect').value;
+            let selectedNames;
+            if (selectedClass === "81") {
+                selectedNames = class81Names;
+            } else {
+                selectedNames = class82Names;
+            }
             const selectedNum = parseInt(document.getElementById('numSelect').value);
-            const selectedNames = [];
-            while (selectedNames.length < selectedNum) {
-                let randomName;
-                do {
-                    const randomIndex = Math.floor(Math.random() * names.length);
-                    randomName = names[randomIndex];
-                } while (randomName === "李炫乐" && Math.random() > 0.9);
-                if (!selectedNames.includes(randomName)) {
-                    selectedNames.push(randomName);
+            const resultNames = [];
+            while (resultNames.length < selectedNum) {
+                let randomIndex = Math.floor(Math.random() * selectedNames.length);
+                let randomName = selectedNames[randomIndex];
+                if (!resultNames.includes(randomName)) {
+                    resultNames.push(randomName);
                 }
             }
-            const resultText = `中奖者：${selectedNames.join(', ')}`;
+            const selectedFunction = document.getElementById('functionSelect').value;
+            const selectedPort = document.getElementById('portSelect').value;
+            console.log("选择的函数:", selectedFunction);
+            console.log("选择的端口:", selectedPort);
+            const resultText = `中奖者：${resultNames.join(', ')}`;
             document.querySelector('.result').textContent = resultText;
             loadingAnimation.style.display = 'none';
         });
