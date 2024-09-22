@@ -13,26 +13,49 @@
             color: #333;
             margin: 0;
             padding: 20px;
+            overflow-y: scroll;
+            height: 100vh;
         }
 
         header {
             text-align: center;
-            background-color: #007BFF;
+            background-color: #4A90E2;
             color: white;
             padding: 20px 0;
             border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         main {
+            display: flex;
             margin-top: 20px;
             padding: 20px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .left-column {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         h2 {
-            color: #007BFF;
+            color: #4A90E2;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        h2:hover {
+            transform: scale(1.05);
+            color: #0056b3;
         }
 
         img {
@@ -41,11 +64,11 @@
         }
 
         button {
-            background-color: #007BFF;
+            background-color: #4A90E2;
             color: white;
             border: none;
             padding: 10px 15px;
-            margin: 10px;
+            margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
@@ -63,7 +86,7 @@
 
         a {
             text-decoration: none;
-            color: #007BFF;
+            color: #4A90E2;
         }
     </style>
 </head>
@@ -73,23 +96,25 @@
         <h1>Leon 咨询处</h1>
     </header>
     <main>
-        <h2>关于个人信息</h2>
-        <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
-        <p>大家好，我是网站负责人 Leon，微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
-        <h2>可购买项目</h2>
-        <p>我们提供优质的 APPLE ID 定制以及和平精英护航。</p>
-        <button onclick="showNumber()">查看手机号</button>
-        <div style="display: flex; align-items: center; flex-wrap: wrap;">
-            <button style="margin-left: 20px;" onclick="goToNextPage()">合作驻网</button>
+        <div class="left-column">
+            <h2>关于个人信息</h2>
+            <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
+            <p>大家好，我是网站负责人 Leon，微信是 18703625231，QQ：2385687286，tg&WhatsApp too 。期待与您交流！</p>
+            <h2>可购买项目</h2>
+            <p>我们提供优质的 APPLE ID 定制以及和平精英护航。</p>
+        </div>
+        <div class="right-column">
+            <button onclick="showNumber()">查看手机号</button>
+            <button onclick="goToNextPage()">合作驻网</button>
             <button onclick="checkPassword()">Leon 编码系统</button>
             <button onclick="goToEscortZone()">护航专区</button>
             <button onclick="goToFenhaoPage()">HP 封号系统 API</button>
+            <button onclick="goToNewPage()">激活 o/w 代码</button>
+            <button onclick="downloadOffice()">下载 Office</button>
+            <button onclick="checkLotteryPassword()">抽奖系统</button>
+            <button onclick="goToNewURL()">国际联网服务</button>
         </div>
-        <button onclick="goToNewPage()">激活 o/w 代码</button>
-        <button onclick="downloadOffice()">下载 Office</button>
-        <button onclick="checkLotteryPassword()">抽奖系统</button>
     </main>
-    <button onclick="goToNewURL()">国际联网服务</button>
     <footer>
         <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon 的个人网站</a>
     </footer>
