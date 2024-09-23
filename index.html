@@ -25,6 +25,7 @@
         }
 
         .container {
+            display: flex;
             margin-top: 20px;
             padding: 20px;
             background: white;
@@ -35,48 +36,41 @@
             margin-right: auto;
         }
 
-        .module {
+        .left-column {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .right-column {
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            margin-bottom: 10px;
-            background-color: #f7f7f7;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #ff6b6b;
+            margin-top: 0;
+        }
+
+        img {
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-        }
-
-        .module:hover {
-            background-color: #ffefef;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transform: scale(1.02);
-        }
-
-        .module h3 {
-            font-size: 20px;
-            margin: 0;
-            transition: font-size 0.3s;
-        }
-
-        .module:hover h3 {
-            font-size: 22px;
         }
 
         button {
-            background-color: #007BFF;
+            background-color: #007BFF; /* Blue */
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin-left: 20px;
+            padding: 15px;
+            margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-            font-size: 18px;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Darker blue */
             transform: scale(1.05);
         }
 
@@ -97,44 +91,25 @@
         <h1>Leon 咨询处</h1>
     </header>
     <div class="container">
-        <div class="module">
-            <h3>查看手机号</h3>
-            <button onclick="showNumber()">跳转</button>
+        <div class="left-column">
+            <h2>关于个人信息</h2>
+            <img src="wchat.jpg" alt="Leon 的微信照片" width="200">
+            <p>大家好，我是网站负责人 Leon，微信是 18738132558，QQ：2385687286，tg&WhatsApp&Facebook too 。期待与您交流！</p>
+            <h2>可购买项目</h2>
+            <p>我们提供优质的 APPLE ID 定制以及和平精英护航。</p>
         </div>
-        <div class="module">
-            <h3>合作驻网</h3>
-            <button onclick="goToNextPage()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>Leon 编码系统</h3>
-            <button onclick="checkPassword()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>护航专区</h3>
-            <button onclick="goToEscortZone()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>HP 封号系统 API</h3>
-            <button onclick="goToFenhaoPage()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>激活 o/w 代码</h3>
-            <button onclick="goToNewPage()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>下载 Office</h3>
-            <button onclick="downloadOffice()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>抽奖系统</h3>
-            <button onclick="checkLotteryPassword()">跳转</button>
-        </div>
-        <div class="module">
-            <h3>国际联网服务</h3>
-            <button onclick="goToNewURL()">跳转</button>
+        <div class="right-column">
+            <button onclick="showNumber()">查看手机号</button>
+            <button onclick="goToNextPage()">合作驻网</button>
+            <button onclick="checkPassword()">Leon 编码系统</button>
+            <button onclick="goToEscortZone()">护航专区</button>
+            <button onclick="goToFenhaoPage()">HP 封号系统 API</button>
+            <button onclick="goToNewPage()">激活 o/w 代码</button>
+            <button onclick="downloadOffice()">下载 Office</button>
+            <button onclick="checkLotteryPassword()">抽奖系统</button>
+            <button onclick="goToNewURL()">国际联网服务</button>
         </div>
     </div>
-
     <footer>
         <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon 的个人网站</a>
     </footer>
@@ -202,5 +177,3 @@
         });
     </script>
 </body>
-
-</html>
