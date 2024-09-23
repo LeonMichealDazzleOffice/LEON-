@@ -108,6 +108,7 @@
             <button onclick="downloadOffice()">下载 Office</button>
             <button onclick="checkLotteryPassword()">抽奖系统</button>
             <button onclick="goToNewURL()">国际联网服务</button>
+            <button onclick="goToCalculator()">计算器</button> <!-- 新增按钮 -->
         </div>
     </div>
     <footer>
@@ -166,6 +167,10 @@
             window.location.href = "https://wmsxwd-3.men/";
         }
 
+        function goToCalculator() {
+            window.location.href = "jisuanji.html"; 
+        }
+
         document.getElementById('copyrightLink').addEventListener('click', function (e) {
             e.preventDefault();
             window.location.href = "thanks_page.html";
@@ -177,3 +182,5 @@
         });
     </script>
 </body>
+
+</html>
