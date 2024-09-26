@@ -34,39 +34,20 @@
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .left-column {
-            flex: 2;
-            padding-right: 20px;
-        }
-
-        .right-column {
-            flex: 1;
-            display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-
-        h2 {
-            color: #ff6b6b;
-            margin-top: 0;
-        }
-
-        img {
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            align-items: center;
         }
 
         button {
             background-color: #007BFF; /* Blue */
             color: white;
             border: none;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 15px 30px;
+            margin: 10px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            font-size: 18px;
         }
 
         button:hover {
@@ -91,86 +72,14 @@
         <h1>Leon Consulting</h1>
     </header>
     <div class="container">
-        <div class="left-column">
-            <h2>About Personal Information</h2>
-            <img src="wchat.jpg" alt="Leon’s WeChat Photo" width="200">
-            <p>Hello everyone, I am Leon, the website administrator. My WeChat is 18738132558, QQ: 2385687286, and available on TG, WhatsApp, and Facebook too. Looking forward to communicating with you!</p>
-            <h2>Available Purchase Items</h2>
-            <p>This will display the topics of the day on Facebook.</p>
-        </div>
-        <div class="right-column">
-            <button onclick="showNumber()">View Phone Number</button>
-            <button onclick="goToNextPage()">Cooperative Network</button>
-            <button onclick="checkPassword()">Leon Code System</button>
-            <button onclick="goToEscortZone()">Escort Zone</button>
-            <button onclick="goToFenhaoPage()">HP Ban System API</button>
-            <button onclick="goToNewPage()">Activate O/W Code</button>
-            <button onclick="downloadOffice()">Download Office</button>
-            <button onclick="checkLotteryPassword()">Lottery System</button>
-            <button onclick="goToNewURL()">International Internet Services</button>
-            <button onclick="goToCalculator()">Calculator</button>
-        </div>
+        <button onclick="window.location.href='entogao.html'">Contribute</button>
+        <button onclick="window.location.href='enlianxiwomem.html'">Contact us</button>
     </div>
     <footer>
         <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon's Personal Website</a>
     </footer>
 
     <script>
-        function showNumber() {
-            window.location.href = "number.html";
-        }
-
-        function goToNextPage() {
-            window.location.href = "next_page.html";
-        }
-
-        function checkPassword() {
-            let password = prompt("Please enter the password:");
-            if (password === "LEON1212121") {
-                window.location.href = "LeonCodeSystem.html";
-            } else {
-                alert("Incorrect password, please try again.");
-            }
-        }
-
-        function goToEscortZone() {
-            window.location.href = "Huhang.html";
-        }
-
-        function goToFenhaoPage() {
-            let fenhaoPassword = prompt("Please enter the HP Ban System password:");
-            if (fenhaoPassword === "HPJY1212121") {
-                window.location.href = "Fenhao.html";
-            } else {
-                alert("Incorrect password, please try again.");
-            }
-        }
-
-        function goToNewPage() {
-            window.location.href = "https://massgrave.dev/";
-        }
-
-        function downloadOffice() {
-            window.location.href = "https://otp.landian.vip/zh-cn/download.html";
-        }
-
-        function checkLotteryPassword() {
-            let lotteryPassword = prompt("Please enter the lottery system password:");
-            if (lotteryPassword === "2024") {
-                window.location.href = "choujiangxit.html";
-            } else {
-                alert("Incorrect password, please try again.");
-            }
-        }
-
-        function goToNewURL() {
-            window.location.href = "https://wmsxwd-3.men/";
-        }
-
-        function goToCalculator() {
-            window.location.href = "jisuanji.html"; 
-        }
-
         document.getElementById('copyrightLink').addEventListener('click', function (e) {
             e.preventDefault();
             window.location.href = "thanks_page.html";
