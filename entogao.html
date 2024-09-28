@@ -55,33 +55,6 @@
             text-decoration: none;
         }
 
-        textarea {
-            width: 100%;
-            height: 150px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            resize: none;
-        }
-
-        button {
-            background-color: #007BFF; /* Blue */
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            font-size: 18px;
-        }
-
-        button:hover {
-            background-color: #0056b3; /* Darker blue */
-            transform: scale(1.05);
-        }
-
         .interesting-posts {
             margin-top: 20px;
             width: 100%;
@@ -113,21 +86,25 @@
 
 <body>
     <header>
-        <h1>Submit Your Contribution</h1>
+        <h1>投稿</h1>
     </header>
     <div class="container">
         <div class="link-section">
-            <div><a href="https://facebook.com/yourfacebookaccount" target="_blank">My Facebook</a></div>
-            <div><h2>有趣的帖子</h2></div>
+            <div><a href="https://www.facebook.com/profile.php?id=61566155703914">My Facebook</a></div>
+            <div><h2>Interesting Posts</h2></div>
         </div>
-        <textarea placeholder="Type your name and contribution here..."></textarea>
-        <button onclick="submitContribution()">Submit</button>
         
         <div class="interesting-posts">
-            <h3>Recent Interesting Posts:</h3>
-            <div class="post">Post Title 1: Brief description of the post content goes here.</div>
-            <div class="post">Post Title 2: Brief description of the post content goes here.</div>
-            <div class="post">Post Title 3: Brief description of the post content goes here.</div>
+            <h3>Posted today:</h3>
+            <div class="post">
+                <strong>Name 1:</strong> Brief description of the contribution or post content goes here.
+            </div>
+            <div class="post">
+                <strong>Name 2:</strong> Brief description of the contribution or post content goes here.
+            </div>
+            <div class="post">
+                <strong>Name 3:</strong> Brief description of the contribution or post content goes here.
+            </div>
             <!-- Add pagination controls here if necessary -->
         </div>
     </div>
@@ -136,10 +113,6 @@
     </footer>
 
     <script>
-        function submitContribution() {
-            alert("Your contribution has been submitted! Thank you!");
-        }
-
         document.getElementById('copyrightLink').addEventListener('click', function (e) {
             e.preventDefault();
             window.location.href = "thanks_page.html";
