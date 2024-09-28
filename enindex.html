@@ -34,8 +34,19 @@
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .left-column {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            align-items: flex-start;
         }
 
         button {
@@ -43,11 +54,12 @@
             color: white;
             border: none;
             padding: 15px 30px;
-            margin: 10px;
+            margin: 10px 0;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             font-size: 18px;
+            width: 100%;
         }
 
         button:hover {
@@ -66,13 +78,13 @@
         }
 
         .topics {
-            margin-top: 20px;
-            font-size: 20px;
+            font-size: 24px;
             color: #ff6b6b;
+            margin-bottom: 10px;
         }
 
         .sub-topic {
-            font-size: 16px;
+            font-size: 18px;
             color: #333;
             margin-top: 5px;
         }
@@ -84,10 +96,14 @@
         <h1>Leon Consulting</h1>
     </header>
     <div class="container">
-        <div class="topics">Today's hot topics</div>
-        <div class="sub-topic">Today’s hot topics will be displayed here</div>
-        <button onclick="window.location.href='entogao.html'">Submit</button>
-        <button onclick="window.location.href='enlianxiwomem.html'">Contact Us</button>
+        <div class="left-column">
+            <div class="topics">Today's Hot Topics</div>
+            <div class="sub-topic">Today’s hot topics will be displayed here</div>
+        </div>
+        <div class="right-column">
+            <button onclick="window.location.href='entogao.html'">Submit</button>
+            <button onclick="window.location.href='enlianxiwomem.html'">Contact Us</button>
+        </div>
     </div>
     <footer>
         <a href="thanks_page.html" id="copyrightLink">&copy; 2024 Leon's Personal Website</a>
